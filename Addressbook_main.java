@@ -10,7 +10,7 @@ public class Addressbook_main {
         int choice;
 
         do {
-            System.out.println("1.Add contact 2.Edit Contacts");
+            System.out.println("1.Add contact 2.Edit Contacts 3.Delete Contact 4.Show All Contact ");
             System.out.println("Enter your choice : ");
             choice=sc.nextInt();
 
@@ -25,6 +25,10 @@ public class Addressbook_main {
 
                 case 3 :
                     contact.Deletecontact();
+                    break;
+
+                case 4 :
+                    contact.multipleContact();
                     break;
 
                 default :
