@@ -110,4 +110,20 @@ public class Contact
             }
         }
     }
+
+    public void Deletecontact()
+    {
+        System.out.println("Enter your first Name : ");
+        String firstName=sc.next();
+        for(int i=0;i<contactList.size();i++)
+        {
+            Person person=contactList.get(i);
+            if(person.getFirstName().equals(firstName))
+            {
+                contactList.remove(i);
+            }
+        }
+        System.out.println("Delete Sucessfully...");
+        System.out.println(contactList);
+    }
 }

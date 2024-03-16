@@ -23,6 +23,10 @@ public class Addressbook_main {
                     contact.Editcontact();
                     break;
 
+                case 3 :
+                    contact.Deletecontact();
+                    break;
+
                 default :
                     System.out.println("Invalid Choice...");
                     break;
