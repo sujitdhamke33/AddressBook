@@ -6,25 +6,18 @@ public class Addressbook_main {
     public static void main(String[] args)
     {
         Scanner sc=new Scanner(System.in);
-        Contact contact=new Contact();
-        int choice;
+        Person person=new Person();
+        person.setFirstName("Alex");
+        person.setLastName("Johnson");
+        person.setAddress("A/P.Syndney");
+        person.setCity("Syndney");
+        person.setState("Australia");
+        person.setZIP("345678");
+        person.setPhone_Number("657898765");
+        person.setEmail("Alex123@gmail.com");
 
-        do {
-            System.out.println("1.Add contact 2.Edit Contact 3.Delete Contact 4.Show All Contact 5.Exit");
-            System.out.println("Enter your choice : ");
-            choice=sc.nextInt();
-
-            switch(choice)
-            {
-                case 1 :
-                    contact.Addcontact();
-                    break;
-
-                default :
-                    System.out.println("Invalid Choice...");
-                    break;
-            }
-        }while(choice !=0);
+        System.out.println(person.getFirstName()+" "+person.getLastName()+" "+person.getAddress()+" "+person.getCity()
+                +" "+person.getState()+" "+person.getZIP()+" "+person.getPhone_Number()+person.getEmail());
     }
     }
 
