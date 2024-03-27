@@ -3,6 +3,7 @@ package AddressBook;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Contact
 {
@@ -141,21 +142,34 @@ public class Contact
         System.out.println(contactList);
     }
 
-    public void showAllcontact()
-    {
-        for(int i=0;i<contactList.size();i++)
-        {
-            Person person=contactList.get(i);
+    public void showAllcontact() {
+        for (int i = 0; i < contactList.size(); i++) {
+            Person person = contactList.get(i);
             System.out.println("   ----------------------------------------------------------------------------------");
-            System.out.println("   First Name is : "+person.getFirstName());
-            System.out.println("   Last Name is : "+person.getLastName());
-            System.out.println("   Address is : "+person.getAddress());
-            System.out.println("   City is "+person.getCity());
-            System.out.println("   State is "+person.getState());
-            System.out.println("   ZIP code is "+person.getZIP());
-            System.out.println("   Phone Number is : "+person.getPhone_Number());
-            System.out.println("   Email is : "+person.getEmail());
+            System.out.println("   First Name is : " + person.getFirstName());
+            System.out.println("   Last Name is : " + person.getLastName());
+            System.out.println("   Address is : " + person.getAddress());
+            System.out.println("   City is " + person.getCity());
+            System.out.println("   State is " + person.getState());
+            System.out.println("   ZIP code is " + person.getZIP());
+            System.out.println("   Phone Number is : " + person.getPhone_Number());
+            System.out.println("   Email is : " + person.getEmail());
             System.out.println("   ----------------------------------------------------------------------------------");
         }
     }
-}
+        public List<Person> searchbyState(String state1)
+        {
+            return contactList.stream()
+                    .filter(state -> state.getState().equalsIgnoreCase(state1))
+                    .collect(Collectors.toList());
+
+        }
+
+        public List<Person> searchbyCity(String city1)
+        {
+            return contactList.stream()
+                    .filter(city -> city.getCity().equalsIgnoreCase(city1))
+                    .collect(Collectors.toList());
+
+        }
+    }
