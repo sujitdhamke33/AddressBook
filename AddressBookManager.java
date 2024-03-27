@@ -1,10 +1,7 @@
 package AddressBook;
 
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class AddressBookManager {
@@ -85,6 +82,26 @@ public class AddressBookManager {
                 .sorted(Map.Entry.comparingByKey())
                 .collect(Collectors.toList())
                 .forEach(n -> System.out.println(n));
+    }
+
+    private static void sortyBycity(String city1)
+    {
+        for(Contact contact : AddressBooks.values())
+        {
+            List<Person> searchbyCity = contact.searchbyCity(city1);
+            if(!searchbyCity.isEmpty())
+            {
+                Collections.sort(searchbyCity, Comparator.comparing(Person::getCity));
+                System.out.println("contacts are sorted in city "+city1);
+
+                for(Person person : searchbyCity)
+                {
+                    System.out.println(person.getFirstName());
+                }
+            }
+            return;
+        }
+        System.out.println("person with city you entered not found...");
     }
 
     private static void searchCity(Map<String, Contact> addressBooks, String city) {
