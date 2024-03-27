@@ -13,6 +13,7 @@ public class AddressBookManager {
     static Contact contact = new Contact();
     static Person person = new Person();
     static Scanner sc = new Scanner(System.in);
+    private static List<String> cityName;
 
     public static void addAddressBook(String addressBookname) {
         if (AddressBooks.containsKey(addressBookname)) {
@@ -88,6 +89,10 @@ public class AddressBookManager {
             } else {
                 System.out.println("There is no any person with" + city + " you entered");
             }
+            int count=(int) searchbyCity.stream().count();
+            citys.put(city, cityName);
+            System.out.println("City list is :"+citys);
+            System.out.println("Count of city "+city+" is : "+count);
 
             for (Person person : searchbyCity) {
                 System.out.println(" First Name is : " + person.getFirstName());
@@ -125,8 +130,10 @@ public class AddressBookManager {
             } else {
                 System.out.println("There is no any person with state you entered");
             }
-            states.put(state,state);
-            System.out.println("State is :" + states);
+            int count=(int) searchbystate.stream().count();
+            states.put(state, state);
+            System.out.println("State is :"+states);
+            System.out.println("Count of state "+state+" is : "+count);
 
         }
     }
