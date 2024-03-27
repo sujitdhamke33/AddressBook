@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class AddressBookManager {
     static Map<String, Contact> AddressBooks = new HashMap<>();
@@ -78,6 +79,12 @@ public class AddressBookManager {
                     break;
             }
         } while (choice != 0);
+    }
+    private static void sortAlphabetically() {
+        AddressBooks.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .collect(Collectors.toList())
+                .forEach(n -> System.out.println(n));
     }
 
     private static void searchCity(Map<String, Contact> addressBooks, String city) {
